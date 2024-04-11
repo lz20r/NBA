@@ -57,9 +57,7 @@ let a5 = document.createElement('a'); // Creamos un a
 a5.textContent = "Contacto"; // Añadimos el texto al a
 a5.href = "contacto.html"; // Añadimos la ruta al a
 li5.appendChild(a5); // Añadimos el a al li
-
-
-
+ 
 fetch("../json/franquicias.json") // Hacemos una petición GET al servidor
 .then(response => response.json()) // Convertimos el json a objeto
 .then(data => {  // data es el objeto que se obtiene del json 
@@ -70,9 +68,9 @@ fetch("../json/franquicias.json") // Hacemos una petición GET al servidor
         let main = document.createElement('main'); // Creamos un main
         body.appendChild(main); // Añadimos el main al body
         
-        let container = document.createElement("div"); // Obtenemos el div con id container
-        main.appendChild(container);
-        container.className = "container"; // Añadimos una clase al div
+        let section = document.createElement("div"); // Obtenemos el div con id section
+        main.appendChild(section);
+        section.className = "section"; // Añadimos una clase al div
 
         let card = document.createElement("div"); // Creamos un div
         card.className = "card"; // Añadimos una clase al div
@@ -114,12 +112,16 @@ fetch("../json/franquicias.json") // Hacemos una petición GET al servidor
         let fundado = document.createElement('fundado'); // Creamos un h5
         fundado.textContent = equipo.fundado; // Añadimos el año de fundación del equipo al h5
         cardBody.appendChild(fundado); // Añadimos el h5 al cardBody
-
-
-        
-        
-
-        container.appendChild(card);
+ 
+        section.appendChild(card);
     });  
+
+    let footer = document.createElement('footer'); // Creamos un footer
+    footer.className = "footer"; // Añadimos una clase al footer
+    document.body.appendChild(footer); // Añadimos el footer al body
+    
+    let p = document.createElement('p'); // Creamos un p
+    p.textContent = "NBA 2021"; // Añadimos el texto al p
+    footer.appendChild(p); // Añadimos el p al footer
 })
-.catch(error => console.error('error', error));
+.catch(error => console.error('error', error)); // Capturamos el error si lo hay
