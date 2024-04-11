@@ -89,28 +89,28 @@ fetch("../json/franquicias.json") // Hacemos una petición GET al servidor
         img.className = "img"; // Añadimos una clase a la imagen
         cardBody.appendChild(img); // Añadimos la imagen al cardBody
  
-        let nombre = document.createElement('nombre'); // Creamos un h5
+        let nombre = document.createElement('h1'); // Creamos un h5
         nombre.textContent = equipo.nombre; // Añadimos el nombre del equipo al h5
         cardBody.appendChild(nombre); // Añadimos el h5 al cardBody
         
-        let ciudad = document.createElement('ciudad'); // Creamos un h5
-        ciudad.textContent = equipo.ciudad; // Añadimos la ciudad del equipo al h5
+        let ciudad = document.createElement('h5'); // Creamos un h5
+        ciudad.textContent = "Ciudad: " + equipo.ciudad; // Añadimos la ciudad del equipo al h5
         cardBody.appendChild(ciudad); // Añadimos el h5 al cardBody
 
-        let estado = document.createElement('estado'); // Creamos un h5
-        estado.textContent = equipo.estado; // Añadimos el estado del equipo al h5
+        let estado = document.createElement('h5'); // Creamos un h5
+        estado.textContent = "Estado: " + equipo.estado; // Añadimos el estado del equipo al h5
         cardBody.appendChild(estado); // Añadimos el h5 al cardBody
 
-        let conferencia = document.createElement('conferencia'); // Creamos un h5
-        conferencia.textContent = equipo.conferencia; // Añadimos la conferencia del equipo al h5
+        let conferencia = document.createElement('h5'); // Creamos un h5
+        conferencia.textContent = "Conferencia: " + equipo.conferencia; // Añadimos la conferencia del equipo al h5
         cardBody.appendChild(conferencia); // Añadimos el h5 al cardBody
 
-        let division = document.createElement('division'); // Creamos un h5
-        division.textContent = equipo.division; // Añadimos la división del equipo al h5
+        let division = document.createElement('h5'); // Creamos un h5
+        division.textContent = "Division: " + equipo.division; // Añadimos la división del equipo al h5
         cardBody.appendChild(division); // Añadimos el h5 al cardBody
 
-        let fundado = document.createElement('fundado'); // Creamos un h5
-        fundado.textContent = equipo.fundado; // Añadimos el año de fundación del equipo al h5
+        let fundado = document.createElement('h5'); // Creamos un h5
+        fundado.textContent = "Fundado: " + equipo.fundado; // Añadimos el año de fundación del equipo al h5
         cardBody.appendChild(fundado); // Añadimos el h5 al cardBody
  
         section.appendChild(card);
