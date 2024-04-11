@@ -5,6 +5,10 @@
  * @email kjashanjeets739@alumnos.imf.com
  */ 
 
+function flipCard() {
+    const card = document.querySelector('.card');
+    card.classList.toggle('flipped');
+  }
 let header = document.createElement('header'); // Creamos un header
 header.className = "header"; // Añadimos una clase al header
 document.body.appendChild(header); // Añadimos el header al body
@@ -32,6 +36,7 @@ let li2 = document.createElement('li'); // Creamos un li
 ul.appendChild(li2); // Añadimos el li al ul
 
 let a2 = document.createElement('a'); // Creamos un a
+a2.className = "a2";
 a2.textContent = "Equipos"; // Añadimos el texto al a
 a2.href = "equipos.html"; // Añadimos la ruta al a
 li2.appendChild(a2); // Añadimos el a al li
@@ -89,29 +94,29 @@ fetch("../json/franquicias.json") // Hacemos una petición GET al servidor
         img.className = "img"; // Añadimos una clase a la imagen
         cardBody.appendChild(img); // Añadimos la imagen al cardBody
  
-        let nombre = document.createElement('h1'); // Creamos un h5
-        nombre.textContent = equipo.nombre; // Añadimos el nombre del equipo al h5
-        cardBody.appendChild(nombre); // Añadimos el h5 al cardBody
+        let nombre = document.createElement('h1'); // Creamos un h1
+        nombre.textContent = equipo.nombre; // Añadimos el nombre del equipo al h1
+        cardBody.appendChild(nombre); // Añadimos el h1 al cardBody
         
-        let ciudad = document.createElement('h5'); // Creamos un h5
-        ciudad.textContent = "Ciudad: " + equipo.ciudad; // Añadimos la ciudad del equipo al h5
-        cardBody.appendChild(ciudad); // Añadimos el h5 al cardBody
+        let ciudad = document.createElement('h4'); // Creamos un h4
+        ciudad.textContent = "Ciudad: " + equipo.ciudad; // Añadimos la ciudad del equipo al h4
+        cardBody.appendChild(ciudad); // Añadimos el h4 al cardBody
 
-        let estado = document.createElement('h5'); // Creamos un h5
-        estado.textContent = "Estado: " + equipo.estado; // Añadimos el estado del equipo al h5
-        cardBody.appendChild(estado); // Añadimos el h5 al cardBody
+        let estado = document.createElement('h4'); // Creamos un h4
+        estado.textContent = "Estado: " + equipo.estado; // Añadimos el estado del equipo al h4
+        cardBody.appendChild(estado); // Añadimos el h4 al cardBody
 
-        let conferencia = document.createElement('h5'); // Creamos un h5
-        conferencia.textContent = "Conferencia: " + equipo.conferencia; // Añadimos la conferencia del equipo al h5
-        cardBody.appendChild(conferencia); // Añadimos el h5 al cardBody
+        let conferencia = document.createElement('h4'); // Creamos un h4
+        conferencia.textContent = "Conferencia: " + equipo.conferencia; // Añadimos la conferencia del equipo al h4
+        cardBody.appendChild(conferencia); // Añadimos el h4 al cardBody
 
-        let division = document.createElement('h5'); // Creamos un h5
-        division.textContent = "Division: " + equipo.division; // Añadimos la división del equipo al h5
-        cardBody.appendChild(division); // Añadimos el h5 al cardBody
+        let division = document.createElement('h4'); // Creamos un h4
+        division.textContent = "Division: " + equipo.division; // Añadimos la división del equipo al h4
+        cardBody.appendChild(division); // Añadimos el h4 al cardBody
 
-        let fundado = document.createElement('h5'); // Creamos un h5
-        fundado.textContent = "Fundado: " + equipo.fundado; // Añadimos el año de fundación del equipo al h5
-        cardBody.appendChild(fundado); // Añadimos el h5 al cardBody
+        let fundado = document.createElement('h4'); // Creamos un h4
+        fundado.textContent = "Fundado: " + equipo.fundado; // Añadimos el año de fundación del equipo al h4
+        cardBody.appendChild(fundado); // Añadimos el h4 al cardBody
  
         section.appendChild(card);
     });  
