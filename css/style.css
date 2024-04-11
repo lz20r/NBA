@@ -1,3 +1,46 @@
 body{
-    background-color: #434343;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
+
+header{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1{
+    margin: 0;
+}
+
+nav{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav a{
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+nav a:hover{
+    background-color: #555;
+}
+
+nav li{
+    display: inline;
+}
+
+
+
+
+img{
+    width: 160px;
+}
+
