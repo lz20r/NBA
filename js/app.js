@@ -3,7 +3,7 @@
  * @email nlezametar538@alumnos.imf.com
  * @author Jashanjeet Singh Kuka
  * @email kjashanjeets739@alumnos.imf.com
- */
+ */ 
 
 let header = document.createElement('header'); // Creamos un header
 header.className = "header"; // Añadimos una clase al header
@@ -123,16 +123,3 @@ fetch("../json/franquicias.json") // Hacemos una petición GET al servidor
     });  
 })
 .catch(error => console.error('error', error));
-
-card.innerHTML = `
-            <div class="card-header">
-            <div class="card-body">
-                <img src="${img.src}"> 
-                <h5>${equipo.nombre}</h5>
-                <h5>${equipo.ciudad}</h5>
-                <h5>${equipo.estado}</h5>
-                <h5>${equipo.conferencia}</h5>
-                <h5>${equipo.division}</h5>
-                <h5>${equipo.fundado}</h5>
-            </div>
-        `;
