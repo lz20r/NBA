@@ -1,8 +1,10 @@
 body{
-    background-color: #f0f0f0;
+    background-color: #f9a11467;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    /* height: fit-content; */
+    /* width: 100vw; */
 }
 
 header{
@@ -31,6 +33,11 @@ nav a{
 
 nav a:hover{
     background-color: #555;
+    border-radius: 12px;
+}
+
+.a2{
+    color: #F58A07;
 }
 
 nav li{
@@ -39,8 +46,65 @@ nav li{
 
 section{
     padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+/* card style start */
+.card-body{
+        /* display: flex; */
+        /* justify-content: center; */
+        /* flex-direction: row; */
+        /* align-items: center; */
+    width: 350px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1º);
+    border-radius: 8px;
+    margin: 35px;
+    color: #F58A07;
+    background-color: #084787bc;
+
+
+    align-items: center;
+    flex-direction: row;
+    border: 2px solid black;
+    text-align: center;
 }
 
+.card {
+display: flex;
+flex-direction: column;
+
+  }
+/*   
+  .card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .card-front {
+    background-color: #3498db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-back {
+    background-color: #2ecc71;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+  }
+  
+  .card.flipped .card-front {
+    display: none;
+  }
+  
+  .card.flipped .card-back {
+    display: flex;
+  } */
+/* card style end   */
 img{
     width: 160px;
 }
