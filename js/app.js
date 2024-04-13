@@ -5,10 +5,7 @@
  * @email kjashanjeets739@alumnos.imf.com
  */ 
 
-function flipCard() {
-    const card = document.querySelector('.card');
-    card.classList.toggle('flipped');
-  }
+/**
 let header = document.createElement('header'); // Creamos un header
 header.className = "header"; // Añadimos una clase al header
 document.body.appendChild(header); // Añadimos el header al body
@@ -37,8 +34,8 @@ ul.appendChild(li2); // Añadimos el li al ul
 
 let a2 = document.createElement('a'); // Creamos un a
 a2.className = "a2";
-a2.textContent = "Equipos"; // Añadimos el texto al a
-a2.href = "equipos.html"; // Añadimos la ruta al a
+a2.textContent = "equipo"; // Añadimos el texto al a
+a2.href = "equipo.html"; // Añadimos la ruta al a
 li2.appendChild(a2); // Añadimos el a al li
 
 let li3 = document.createElement('li'); // Creamos un li
@@ -66,7 +63,8 @@ li5.appendChild(a5); // Añadimos el a al li
 fetch("../json/franquicias.json") // Hacemos una petición GET al servidor
 .then(response => response.json()) // Convertimos el json a objeto
 .then(data => {  // data es el objeto que se obtiene del json 
-    data.franquicias.forEach(equipo => { 
+    data.franquicias.forEach(equipo => {  
+
         let body = document.body;
         body.className = "body";
 
@@ -130,3 +128,30 @@ fetch("../json/franquicias.json") // Hacemos una petición GET al servidor
     footer.appendChild(p); // Añadimos el p al footer
 })
 .catch(error => console.error('error', error)); // Capturamos el error si lo hay
+ */
+
+fetch("../json/franquicias.json")
+.then(equipo => equipo.json())
+.then(equipo => {
+    header(equipo);
+
+}).catch(error => console.error('error', error)); // Capturamos el error si lo hay
+
+/**
+ * Función que crea las cards de los equipo
+ * @param {*} equipo 
+ */
+function header(equipo) { 
+   document.body 
+   let header = document.createElement('header'); // Creamos un header 
+   document.body.appendChild(header); // Añadimos el header al body
+   let h1 = document.createElement('h1'); // Creamos un h1
+   h1.textContent = "NBA"; // Añadimos el texto al h1
+   header.appendChild(h1); // Añadimos el h1 al header
+}
+
+function nav(equipo) {
+    let nav = document.createElement('nav'); // Creamos un nav
+
+    for 
+}
