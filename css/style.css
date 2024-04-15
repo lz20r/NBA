@@ -53,10 +53,12 @@ footer{
 
 .card{
   display: inline-block; 
-  border-radius: 5px; 
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align:justify;
   transition: 0.3s; 
   margin: 10px;
-  width: 30%;  
+  width: 16%;  
 }
 
 .card-inner { 
@@ -64,7 +66,9 @@ footer{
   transition: transform 0.8s;
 }
 
-
+.card:hover .card-inner {
+  transform: rotateY(180deg); /* Voltea la tarjeta */
+}
 
 .card-front, .card-back {  
   backface-visibility: hidden; /* Oculta el lado de atrás cuando se rote la tarjeta */
@@ -79,6 +83,7 @@ footer{
 
 .card:hover{
   box-shadow: 0 0 10px  rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
 .card img{
@@ -112,11 +117,3 @@ footer{
 .card a:hover{ 
   color: #333;
 }
-
-footer{
-  background-color: #333;
-  color: #fff; 
-  padding: 4px 0;
-  text-align: center;
-}
-
