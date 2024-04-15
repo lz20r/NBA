@@ -72,41 +72,33 @@ fetch("../json/franquicias.json")
         agregarElementoLista(ul, "Contacto", "#contacto"); // Añadimos el quinto elemento a la lista del nav
     } // Función que crea el header con el nav y la lista de elementos
 
-function cards(equipo) {
-    let body = document.body;
-    body.className = "body";
+    function cards(equipo) {
+        equipo.franquicias.forEach(equipo => { 
+            let body = document.body;
+            body.className = "body";
 
+            let card = document.createElement('div');
+            card.className = 'card';
+            document.body.appendChild(card);  
 
-    let card = document.createElement('div');
-    card.className = 'card';
-    document.body.appendChild(card);  
+            let cardInner = document.createElement('div');
+            cardInner.className = 'card-inner';
+            card.appendChild(cardInner);
 
-    let cardInner = document.createElement('div');
-    cardInner.className = 'card-inner';
-    card.appendChild(cardInner);
+            let cardFront = document.createElement('div');
+            cardFront.className = 'card-front';
+            cardInner.appendChild(cardFront);
 
-    let cardFront = document.createElement('div');
-    cardFront.className = 'card-front';
-    cardInner.appendChild(cardFront);
+            let escudo = equipo.nombre.split(' ').pop(); // Obtenemos el último elemento del array
+            let img = document.createElement('img'); // Creamos una imagen
+            img.src = `../img/${equipo.division}/${escudo}.svg`; // Añadimos la ruta de la imagen
+            img.className = "img"; // Añadimos una clase a la imagen
+            cardFront.appendChild(img); // Añadimos la imagen al cardBody
+            console.log(img.src);
 
-    equipo.franquicias.forEach(equipo => { 
-        let logo = equipo.nombre.split(' ').pop();
-        let img = document.createElement('img');
-        img.src = `../img/${equipo.division}.${logo}.svg`;
-        img.className = 'logo'; 
-        cardFront.appendChild(img);
-        console.log(img.src);
-        let cardInfo = document.createElement('h5');
-        cardInfo.className = 'card-name';
-        cardInfo.textContent = equipo.nombre;
-        cardFront.appendChild(cardInfo);
-    });
-
-    equipo.franquicias
-    let logo = equipo.franquicias.nombre.split(' ').pop();
-    console.log(logo);
-    let img = document.createElement('img');
-    logo.src = `img/${equipo.franquicias.division}.${logo}.svg`; 
-    console.log(logo);
-    cardFront.appendChild(img);
-} 
+            let cardInfo = document.createElement('h5');
+            cardInfo.className = 'card-name';
+            cardInfo.textContent = equipo.nombre;
+            cardFront.appendChild(cardInfo);
+        }); 
+    } 
