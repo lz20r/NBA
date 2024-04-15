@@ -59,7 +59,7 @@ let a5 = document.createElement('a'); // Creamos un a
 a5.textContent = "Contacto"; // Añadimos el texto al a
 a5.href = "contacto.html"; // Añadimos la ruta al a
 li5.appendChild(a5); // Añadimos el a al li
- 
+
 fetch("../json/franquicias.json") // Hacemos una petición GET al servidor
 .then(response => response.json()) // Convertimos el json a objeto
 .then(data => {  // data es el objeto que se obtiene del json 
@@ -134,7 +134,7 @@ fetch("../json/franquicias.json")
 .then(equipo => equipo.json())
 .then(equipo => {
     header("Equipo");
-
+    
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
     /**
@@ -172,10 +172,19 @@ fetch("../json/franquicias.json")
         let ul = crearHeader(); // Creamos el header y obtenemos el ul creado
     
         // Agregamos elementos a la lista
-        agregarElementoLista(ul, "Inicio", "../index.html");
-        agregarElementoLista(ul, equipo, "equipo.html");
-        agregarElementoLista(ul, "Jugadores", "jugadores.html");
-        agregarElementoLista(ul, "Estadísticas", "estadisticas.html");
-        agregarElementoLista(ul, "Contacto", "contacto.html");
+        agregarElementoLista(ul, "Inicio", "#home");
+        agregarElementoLista(ul, equipo, "#equipo");
+        agregarElementoLista(ul, "Jugadores", "#jugadores");
+        agregarElementoLista(ul, "Estadísticas", "#estadisticas");
+        agregarElementoLista(ul, "Contacto", "#contacto");
     } 
     
+    /**
+     * Función que crea las cards de los equipo
+     * @param {*} equipo 
+     */
+
+    function cards(equipo){
+
+    }
+
