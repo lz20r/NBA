@@ -1,10 +1,10 @@
 body{
   background-color: #f9a11467;
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;  
+  justify-content: center;  
+  width: 100vw;
   margin: 0;
   padding: 0;
-  height: fit-content;  
-  width: 100vw; 
 }
 
 header{
@@ -34,9 +34,6 @@ nav a{
 nav a:hover{
   background-color: #555;
   border-radius: 12px;
-}
-
-.a2{
   color: #F58A07;
 }
 
@@ -51,20 +48,43 @@ footer{
   text-align: center;
 }
 
+
+footer{
+  background-color: #333;
+  color: #fff; 
+  padding: 4px 0;
+  text-align: center;
+}
+
 .card{
   display: inline-block; 
+  align-items: center;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align:justify;
   transition: 0.3s; 
-  margin: 15px;
-  width: 16%;   
+  margin: 10px;
+  width: 16%;  
 }
 
 .card-inner { 
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  perspective: 1000px; /* Efecto 3D */
   transform-style: preserve-3d;
-  transition: transform 0.8s; 
+  transition: transform 0.8s;
 }
 
+.card-front, .card-back {
+  backface-visibility: hidden; /* Oculta el lado de atrás cuando se rote la tarjeta */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative; 
+}
 .card:hover .card-inner {
   transform: rotateY(180deg); /* Voltea la tarjeta */
 }
@@ -77,30 +97,31 @@ footer{
   transform: rotateY(180deg); 
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center; 
 }
 
 .card:hover{
   box-shadow: 0 0 10px  rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
-  align-items: center; 
 }
 
 .card img{
-  border-radius: 5px 5px 0 0; 
-  align-items: center;
+  border-radius: 5px 5px 0 0;
+  width: 100%;
 }
 
 .card h1{
   color: #333;
   font-size: 20px;
-  margin: 10px; 
+  margin: 10px;
+  align-items: center;
 }
 
 .card p{
   color: #666;
   font-size: 16px;
-  margin: 10px; 
+  margin: 10px;
+  align-items: center;
 }
 
 .card a{
@@ -117,4 +138,5 @@ footer{
 
 .card a:hover{ 
   color: #333;
+  align-items: center;
 }
