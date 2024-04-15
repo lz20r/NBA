@@ -67,9 +67,6 @@ fetch("../json/franquicias.json") // Hacemos una petición GET al servidor
 
         let body = document.body;
         body.className = "body";
-
-        let main = document.createElement('main'); // Creamos un main
-        body.appendChild(main); // Añadimos el main al body
         
         let section = document.createElement("div"); // Obtenemos el div con id section
         main.appendChild(section);
@@ -132,24 +129,33 @@ fetch("../json/franquicias.json") // Hacemos una petición GET al servidor
 
 fetch("../json/franquicias.json")
 .then(equipo => equipo.json())
-.then(equipo => {
-    header("Equipo");
-    
+.then(equipo => { 
+    header(equipo);  
+    cards(equipo);
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
     /**
      * Función que crea las cards de los equipo
      * @param {*} equipo 
      */
+
+    function crearBody(){
+        // Creamos el body
+        let body = document.createElement('body'); // Creamos un body
+        document.body.appendChild(body); // Añadimos el ul al body
+    }
+
     function crearHeader() {
         let header = document.createElement('header'); // Creamos un header 
         document.body.appendChild(header); // Añadimos el header al body
         let h1 = document.createElement('h1'); // Creamos un h1
         h1.textContent = "NBA"; // Añadimos el texto al h1
-        header.appendChild(h1); // Añadimos el h1 al header   
-        
-        // Creamos el nav
-        let nav = document.createElement('nav'); 
+        header.appendChild(h1); // Añadimos el h1 al header    
+        return header; // Devolvemos el header para poder manipularlo fuera de esta función si es necesario
+    }
+    
+    function crearNav(header) {
+        let nav = document.createElement('nav'); // Creamos el nav
         header.appendChild(nav); // Añadimos el nav al header
         let ul = document.createElement('ul'); // Creamos un ul
         nav.appendChild(ul); // Añadimos el ul al nav
@@ -165,26 +171,25 @@ fetch("../json/franquicias.json")
         li.appendChild(a); // Añadimos el a al li
     }
     
-    function header(equipo) { 
-        // Creamos el body
-        document.body 
-    
-        let ul = crearHeader(); // Creamos el header y obtenemos el ul creado
+    function header(equipo) {
+        crearBody(); // Llamamos a la función para crear el body
+        let header = crearHeader(); // Creamos el header
+        let ul = crearNav(header); // Creamos el nav y obtenemos el ul creado
     
         // Agregamos elementos a la lista
-        agregarElementoLista(ul, "Inicio", "#home");
-        agregarElementoLista(ul, equipo, "#equipo");
-        agregarElementoLista(ul, "Jugadores", "#jugadores");
-        agregarElementoLista(ul, "Estadísticas", "#estadisticas");
-        agregarElementoLista(ul, "Contacto", "#contacto");
-    } 
-    
-    /**
-     * Función que crea las cards de los equipo
-     * @param {*} equipo 
-     */
+        agregarElementoLista(ul, "Inicio", "#home"); // Añadimos el primer elemento a la lista del nav
+        agregarElementoLista(ul, "Equipo", "#equipo"); // Añadimos el segundo elemento a la lista del nav
+        agregarElementoLista(ul, "Jugadores", "#jugadores"); // Añadimos el tercer elemento a la lista del nav
+        agregarElementoLista(ul, "Estadísticas", "#estadisticas"); // Añadimos el cuarto elemento a la lista del nav
+        agregarElementoLista(ul, "Contacto", "#contacto"); // Añadimos el quinto elemento a la lista del nav
+    }
 
-    function cards(equipo){
+    function crearCard(){
 
     }
 
+
+    function cards(equipo){
+        crearBody();
+        crearCard()
+    }
