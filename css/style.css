@@ -3,8 +3,8 @@ body{
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  /* height: fit-content; */
-  /* width: 100vw; */
+  height: fit-content;  
+  width: 100vw; 
 }
 
 header{
@@ -54,16 +54,15 @@ footer{
 .card{
   display: inline-block; 
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align:justify;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
   transition: 0.3s; 
   margin: 10px;
-  width: 16%;  
+  width: 16%;   
 }
 
 .card-inner { 
   transform-style: preserve-3d;
-  transition: transform 0.8s;
+  transition: transform 0.8s; 
 }
 
 .card:hover .card-inner {
@@ -78,23 +77,26 @@ footer{
   transform: rotateY(180deg); 
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;  
 }
 
 .card:hover{
   box-shadow: 0 0 10px  rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
+  align-items: center;
 }
 
 .card img{
   border-radius: 5px 5px 0 0;
   width: 100%;
+  align-items: center;
 }
 
 .card h1{
   color: #333;
   font-size: 20px;
   margin: 10px;
+  align-items: center;
 }
 
 .card p{
