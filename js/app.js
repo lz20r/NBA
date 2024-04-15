@@ -133,25 +133,49 @@ fetch("../json/franquicias.json") // Hacemos una petición GET al servidor
 fetch("../json/franquicias.json")
 .then(equipo => equipo.json())
 .then(equipo => {
-    header(equipo);
+    header("Equipo");
 
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
-/**
- * Función que crea las cards de los equipo
- * @param {*} equipo 
- */
-function header(equipo) { 
-   document.body 
-   let header = document.createElement('header'); // Creamos un header 
-   document.body.appendChild(header); // Añadimos el header al body
-   let h1 = document.createElement('h1'); // Creamos un h1
-   h1.textContent = "NBA"; // Añadimos el texto al h1
-   header.appendChild(h1); // Añadimos el h1 al header
-}
-
-function nav(equipo) {
-    let nav = document.createElement('nav'); // Creamos un nav
-
-    for 
-}
+    /**
+     * Función que crea las cards de los equipo
+     * @param {*} equipo 
+     */
+    function crearHeader() {
+        let header = document.createElement('header'); // Creamos un header 
+        document.body.appendChild(header); // Añadimos el header al body
+        let h1 = document.createElement('h1'); // Creamos un h1
+        h1.textContent = "NBA"; // Añadimos el texto al h1
+        header.appendChild(h1); // Añadimos el h1 al header   
+        
+        // Creamos el nav
+        let nav = document.createElement('nav'); 
+        header.appendChild(nav); // Añadimos el nav al header
+        let ul = document.createElement('ul'); // Creamos un ul
+        nav.appendChild(ul); // Añadimos el ul al nav
+        return ul; // Devolvemos el ul para poder añadir elementos a él fuera de esta función
+    }
+    
+    function agregarElementoLista(ul, texto, ruta) {
+        let li = document.createElement('li'); // Creamos un li
+        ul.appendChild(li); // Añadimos el li al ul
+        let a = document.createElement('a'); // Creamos un a
+        a.textContent = texto; // Añadimos el texto al a
+        a.href = ruta; // Añadimos la ruta al a
+        li.appendChild(a); // Añadimos el a al li
+    }
+    
+    function header(equipo) { 
+        // Creamos el body
+        document.body 
+    
+        let ul = crearHeader(); // Creamos el header y obtenemos el ul creado
+    
+        // Agregamos elementos a la lista
+        agregarElementoLista(ul, "Inicio", "../index.html");
+        agregarElementoLista(ul, equipo, "equipo.html");
+        agregarElementoLista(ul, "Jugadores", "jugadores.html");
+        agregarElementoLista(ul, "Estadísticas", "estadisticas.html");
+        agregarElementoLista(ul, "Contacto", "contacto.html");
+    } 
+    
