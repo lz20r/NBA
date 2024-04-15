@@ -145,15 +145,19 @@ fetch("../json/franquicias.json")
         document.body.appendChild(body); // Añadimos el ul al body
     }
 
+    function h1(texto) {
+        let h1 = document.createElement('h1'); // Creamos un h1
+        h1.textContent = texto;
+        return h1;
+    }
+
     function crearHeader() {
         let header = document.createElement('header'); // Creamos un header 
-        document.body.appendChild(header); // Añadimos el header al body
-        let h1 = document.createElement('h1'); // Creamos un h1
-        h1.textContent = "NBA"; // Añadimos el texto al h1
-        header.appendChild(h1); // Añadimos el h1 al header    
+        document.body.appendChild(header); // Añadimos el header al body 
+        header.appendChild(h1("NBA")); // Añadimos un h1 al header 
         return header; // Devolvemos el header para poder manipularlo fuera de esta función si es necesario
     }
-    
+
     function crearNav(header) {
         let nav = document.createElement('nav'); // Creamos el nav
         header.appendChild(nav); // Añadimos el nav al header
@@ -171,8 +175,7 @@ fetch("../json/franquicias.json")
         li.appendChild(a); // Añadimos el a al li
     }
     
-    function header(equipo) {
-        crearBody(); // Llamamos a la función para crear el body
+    function header(equipo) { 
         let header = crearHeader(); // Creamos el header
         let ul = crearNav(header); // Creamos el nav y obtenemos el ul creado
     
@@ -185,10 +188,8 @@ fetch("../json/franquicias.json")
     }
 
     function crearCard(){
-
-    }
-
-
+        
+    } 
     function cards(equipo){
         crearBody();
         crearCard()
