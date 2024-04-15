@@ -66,17 +66,20 @@ fetch("../json/franquicias.json")
     
         // Agregamos elementos a la lista
         agregarElementoLista(ul, "Inicio", "#home"); // Añadimos el primer elemento a la lista del nav
-        agregarElementoLista(ul, "Equipo", "#equipo"); // Añadimos el segundo elemento a la lista del nav
+        agregarElementoLista(ul, "Equipo", "#equipos"); // Añadimos el segundo elemento a la lista del nav
         agregarElementoLista(ul, "Jugadores", "#jugadores"); // Añadimos el tercer elemento a la lista del nav
         agregarElementoLista(ul, "Estadísticas", "#estadisticas"); // Añadimos el cuarto elemento a la lista del nav
         agregarElementoLista(ul, "Contacto", "#contacto"); // Añadimos el quinto elemento a la lista del nav
     } // Función que crea el header con el nav y la lista de elementos
+
 
     function cards(equipo) {
         equipo.franquicias.forEach(equipo => { 
             let body = document.body;
             body.className = "body";
 
+            let section = document.createElement('section');
+            section.className = 'equipos';
             let card = document.createElement('div');
             card.className = 'card';
             document.body.appendChild(card);  
