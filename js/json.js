@@ -11,7 +11,11 @@ fetch("../json/franquicias.json")
     console.log(equipo.franquicias); 
     header(equipo);
     home();
-    cards(equipo); 
+    equipos(equipo);  
+    pabellones(equipo);
+    dirigentes(equipo);
+    premios(equipo); 
+    jugadores(equipo);
 
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
@@ -20,8 +24,7 @@ fetch("../json/franquicias.json")
      * @param {*} equipo 
      */
 
-
-
+ 
     function crearSection() {
         let section = document.createElement('section'); // Creamos un section
         document.body.appendChild(section); // Añadimos el section al body
@@ -33,8 +36,7 @@ fetch("../json/franquicias.json")
         h1.textContent = texto;
         return h1;
     } // Función que crea un h1 con un texto
-
-
+ 
 
     function crearHeader() {
         let header = document.createElement('header'); // Creamos un header 
@@ -70,9 +72,11 @@ fetch("../json/franquicias.json")
         // Agregamos elementos a la lista
         agregarElementoLista(ul, "Inicio", "#home"); // Añadimos el primer elemento a la lista del nav
         agregarElementoLista(ul, "Equipos", "#equipos"); // Añadimos el segundo elemento a la lista del nav
-        agregarElementoLista(ul, "Jugadores", "#jugadores"); // Añadimos el tercer elemento a la lista del nav
-        agregarElementoLista(ul, "Estadísticas", "#estadisticas"); // Añadimos el cuarto elemento a la lista del nav
-        agregarElementoLista(ul, "Contacto", "#contacto"); // Añadimos el quinto elemento a la lista del nav 
+        agregarElementoLista(ul, "Pabellones", "#pabellones"); // Añadimos el tercer elemento a la lista del nav
+        agregarElementoLista(ul, "Dirigentes", "#dirigentes"); // Añadimos el séptimo elemento a la lista del nav
+        agregarElementoLista(ul, "Premios", "#premios"); // Añadimos el tercer elemento a la lista del nav
+        agregarElementoLista(ul, "Jugadores", "#jugadores"); // Añadimos el sexto elemento a la lista del nav
+
     } // Función que crea el header con el nav y la lista de elementos
 
     function home() {
@@ -84,12 +88,12 @@ fetch("../json/franquicias.json")
         home.appendChild(h1); // Añadimos el h1 al section
     } // Función que crea el contenido de la sección home
 
-    function cards(equipo) {
+    function equipos(equipo) {
         let equipos = crearSection(); // Creamos un section
         equipos.id = "equipos"; // Añadimos un id al section
 
         let h1 = document.createElement('h1'); // Creamos un h1
-        h1.textContent = "Franquicias"; // Añadimos un texto al h1
+        h1.textContent = "Equipos"; // Añadimos un texto al h1
         equipos.appendChild(h1); // Añadimos el h1 al section
 
         equipo.franquicias.forEach(equipo => { 
@@ -97,7 +101,7 @@ fetch("../json/franquicias.json")
             body.className = "body";
 
             let section = document.createElement('section');
-            section.className = '#equipos';
+            section.className = 'equipos';
             let card = document.createElement('div');
             card.className = 'card';
             document.body.appendChild(card);  
@@ -122,4 +126,49 @@ fetch("../json/franquicias.json")
             cardInfo.textContent = equipo.nombre;
             cardFront.appendChild(cardInfo);
         }); 
-    } 
+} 
+
+fetch('../xml/nba.xml')
+.then(response => response.text())
+.then(xmlString => {
+    let parser = new DOMParser();
+    let xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+    console.log(xmlDoc);
+})
+.catch(error => console.error('error', error)); // Capturamos el error si lo hay
+
+function dirigentes(equipo) {
+    let dirigentes = crearSection(); // Creamos un section
+    dirigentes.id = "dirigentes"; // Añadimos un id al section
+
+    let h1 = document.createElement('h1'); // Creamos un h1
+    h1.textContent = "Dirigentes"; // Añadimos un texto al h1
+    dirigentes.appendChild(h1); // Añadimos el h1 al section
+}
+
+function pabellones(equipo) {
+    let pabellones = crearSection(); // Creamos un section
+    pabellones.id = "pabellones"; // Añadimos un id al section
+
+    let h1 = document.createElement('h1'); // Creamos un h1
+    h1.textContent = "Pabellones"; // Añadimos un texto al h1
+    pabellones.appendChild(h1); // Añadimos el h1 al section
+}
+
+function premios(equipo) {
+    let premios = crearSection(); // Creamos un section
+    premios.id = "premios"; // Añadimos un id al section
+
+    let h1 = document.createElement('h1'); // Creamos un h1
+    h1.textContent = "Premios"; // Añadimos un texto al h1
+    premios.appendChild(h1); // Añadimos el h1 al section
+}
+
+function jugadores(equipo) {
+    let jugadores = crearSection(); // Creamos un section
+    jugadores.id = "jugadores"; // Añadimos un id al section
+
+    let h1 = document.createElement('h1'); // Creamos un h1
+    h1.textContent = "Jugadores"; // Añadimos un texto al h1
+    jugadores.appendChild(h1); // Añadimos el h1 al section
+}
