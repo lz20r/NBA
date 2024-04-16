@@ -77,7 +77,8 @@ h1:after {
 
 .card-inner { 
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  margin-left: auto;
   height: 100%;
   perspective: 1000px; /* Efecto 3D */
   transform-style: preserve-3d;
@@ -168,7 +169,7 @@ footer{
 } 
 
 /* css de xml.js */
- 
+
 
 /* Table style */
 .table-style {
@@ -183,7 +184,6 @@ footer{
 .header-row th {
   background-color: #042f4f;
   color: white;
-  /* border: 1px solid #dddddd; */
   padding: 8px;
   text-align: left;
 }
@@ -198,12 +198,9 @@ tbody tr:nth-child(odd) {
 }
 
 tbody td {
-  /* border: 1px solid #dddddd; */
   padding: 8px;
 }
-/* td:hover{
-  background-color: #e9ecef;
-} */
+
 .table-style tbody tr:hover td {
   background-color: #f9a114; /* Change this color to the highlight color you prefer */
 }

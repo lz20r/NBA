@@ -11,17 +11,15 @@ fetch("../json/franquicias.json")
     // console.log(equipo); 
     header();
     home();
-    equipos(equipo);   
-
+    equipos(equipo);    
+    
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
 fetch('../xml/nba.xml')
 .then(response => response.text())
-.then(info => { 
- 
-    jugadores(info);
-    
-
+.then(info => {   
+    jugadores(info);  
+    footer();
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
 
@@ -140,93 +138,6 @@ fetch('../xml/nba.xml')
         document.body.appendChild(table);
     }
 
-    function pabellones(info) { 
-    let parser = new DOMParser();
-    let xmlDoc = parser.parseFromString(info, 'application/xml');
-    let table = document.createElement('table');
-    table.classList.add('table-style');
-
-    let pabellones = crearSection();
-    pabellones.id = "pabellones";
-    let h1 = document.createElement('h1');
-    h1.textContent = "Pabellones";
-    pabellones.appendChild(h1);
-        
-    // Extract the "pabellon" elements
-    let pabe = xmlDoc.getElementsByTagName('pabellon'); 
-     // Iterate over each "pabellon" element and create table rows and cells
-    for (let pabellon of pabe) {
-        let row = document.createElement('tr');
-        for (let attribute of ['nombre', 'ciudad', 'capacidad']) {
-            let cell = document.createElement('td');
-            cell.textContent = pabellon.getAttribute(attribute);
-            row.appendChild(cell);
-        }
-        table.appendChild(row);
-    }   
-    document.body.appendChild(table);
-
-
-    let premios = crearSection();
-    premios.id = "premios"; 
-    h1.textContent = "Premios";
-    premios.appendChild(h1); 
-
-    // Extract the "premio" elements
-    let prem = xmlDoc.getElementsByTagName('pabellon'); 
-
-
-    // Iterate over each "premio" element and create table rows and cells
-    for (let premio of prem) {
-        let row = document.createElement('tr');
-        for (let attribute of ['nombre', 'año']) {
-            let cell = document.createElement('td');
-            cell.textContent = premio.getAttribute(attribute);
-            row.appendChild(cell);
-        }
-        table.appendChild(row);
-    }
-    document.body.appendChild(table);
-    }
-
-    function premios(info) {
-        let parser = new DOMParser();
-        let xmlDoc = parser.parseFromString(info, 'application/xml');
-        let table = document.createElement('table');
-        table.classList.add('table-style');
-
-        let premios = crearSection();
-        premios.id = "premios";
-        let h1 = document.createElement('h1');
-        h1.textContent = "Premios";
-        premios.appendChild(h1);
-
-        // Extract the "premio" elements
-        let prem = xmlDoc.getElementsByTagName('premio');
-
-        // Create and append table header row
-        let headerRow = document.createElement('tr');
-        headerRow.classList.add('header-row');
-        for (let attribute of ['Nombre', 'Año']) {
-            let th = document.createElement('th');
-            th.textContent = attribute;
-            headerRow.appendChild(th);
-        }
-        table.appendChild(headerRow);
-
-        // Iterate over each "premio" element and create table rows and cells
-        for (let premio of prem) {
-            let row = document.createElement('tr');
-            for (let attribute of ['nombre', 'año']) {
-                let cell = document.createElement('td');
-                cell.textContent = premio.getAttribute(attribute);
-                row.appendChild(cell);
-            }
-            table.appendChild(row);
-        }
-        document.body.appendChild(table);
-    }
-
     function jugadores(info) {
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(info, 'application/xml');
@@ -243,8 +154,7 @@ fetch('../xml/nba.xml')
         let jug = xmlDoc.getElementsByTagName('jugador');
 
         for (let jugador of jug) { 
-            let h5 = document.createElement('h5');
-            
+            let h5 = document.createElement('h5'); 
             table.appendChild(h5);
         }
 
@@ -286,6 +196,16 @@ fetch('../xml/nba.xml')
             cardNumber.className = 'card-number';
             cardNumber.textContent = jugador.getAttribute('numero');
             cardBack.appendChild(cardNumber);
+
+            let cardTeam = document.createElement('h5');
+            cardTeam.className = 'card-team';
+            cardTeam.textContent = jugador.getAttribute('equipo_actual');
+            cardBack.appendChild(cardTeam);
+
+            let CardNickname = document.createElement('h5');
+            CardNickname.className = 'card-nickname';
+            CardNickname.textContent = jugador.getAttribute('apodo');
+            cardBack.appendChild(CardNickname);
         }
         document.body.appendChild(table);
     }
@@ -344,3 +264,16 @@ fetch('../xml/nba.xml')
         agregarElementoLista(ul, "Premios", "#premios"); // Añadimos el tercer elemento a la lista del nav
 
     } // Función que crea el header con el nav y la lista de elementos
+
+    function crearFooter() {
+        let footer = document.createElement('footer'); // Creamos un footer
+        document.body.appendChild(footer); // Añadimos el footer al body 
+        return footer; // Devolvemos el footer para poder manipularlo fuera de esta función si es necesario
+    } // Función que crea el footer con un h1
+
+    function footer() {
+        let footer = crearFooter(); // Creamos el footer
+        footer.appendChild(h1("NBA")); // Añadimos un h1 al footer
+
+    } // Función que crea el footer
+
