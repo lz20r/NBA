@@ -115,7 +115,7 @@ fetch("../json/franquicias.json")
             img.src = `../img/${equipo.division}/${escudo}.svg`; // Añadimos la ruta de la imagen
             img.className = "img"; // Añadimos una clase a la imagen
             cardFront.appendChild(img); // Añadimos la imagen al cardBody
-            console.log(img.src);
+            
 
             let cardInfo = document.createElement('h5');
             cardInfo.className = 'card-name';
