@@ -10,7 +10,8 @@ fetch("../json/franquicias.json")
 .then(equipo => {    
     console.log(equipo.franquicias); 
     header(equipo);
-    cards(equipo);
+    home();
+    cards(equipo); 
 
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
@@ -18,6 +19,7 @@ fetch("../json/franquicias.json")
      * Función que crea las cards de los equipo
      * @param {*} equipo 
      */
+
 
 
     function crearSection() {
@@ -31,6 +33,7 @@ fetch("../json/franquicias.json")
         h1.textContent = texto;
         return h1;
     } // Función que crea un h1 con un texto
+
 
 
     function crearHeader() {
@@ -60,20 +63,35 @@ fetch("../json/franquicias.json")
     } // Función que añade elementos a la lista del nav
     
 
-    function header(equipo) { 
+    function header(equipo) {   
         let header = crearHeader(); // Creamos el header
         let ul = crearNav(header); // Creamos el nav y obtenemos el ul creado
-    
+
         // Agregamos elementos a la lista
         agregarElementoLista(ul, "Inicio", "#home"); // Añadimos el primer elemento a la lista del nav
         agregarElementoLista(ul, "Equipos", "#equipos"); // Añadimos el segundo elemento a la lista del nav
         agregarElementoLista(ul, "Jugadores", "#jugadores"); // Añadimos el tercer elemento a la lista del nav
         agregarElementoLista(ul, "Estadísticas", "#estadisticas"); // Añadimos el cuarto elemento a la lista del nav
-        agregarElementoLista(ul, "Contacto", "#contacto"); // Añadimos el quinto elemento a la lista del nav
+        agregarElementoLista(ul, "Contacto", "#contacto"); // Añadimos el quinto elemento a la lista del nav 
     } // Función que crea el header con el nav y la lista de elementos
 
+    function home() {
+        let home = crearSection(); // Creamos un section
+        home.id = "home"; // Añadimos un id al section
+
+        let h1 = document.createElement('h1'); // Creamos un h1
+        h1.textContent = "Inicio"; // Añadimos un texto al h1
+        home.appendChild(h1); // Añadimos el h1 al section
+    } // Función que crea el contenido de la sección home
 
     function cards(equipo) {
+        let equipos = crearSection(); // Creamos un section
+        equipos.id = "equipos"; // Añadimos un id al section
+
+        let h1 = document.createElement('h1'); // Creamos un h1
+        h1.textContent = "Franquicias"; // Añadimos un texto al h1
+        equipos.appendChild(h1); // Añadimos el h1 al section
+
         equipo.franquicias.forEach(equipo => { 
             let body = document.body;
             body.className = "body";
