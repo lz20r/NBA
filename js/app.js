@@ -338,9 +338,9 @@ fetch('../xml/nba.xml')
         // Agregamos elementos a la lista
         agregarElementoLista(ul, "Inicio", "#home"); // Añadimos el primer elemento a la lista del nav
         agregarElementoLista(ul, "Equipos", "#equipos"); // Añadimos el segundo elemento a la lista del nav
+        agregarElementoLista(ul, "Jugadores", "#jugadores"); // Añadimos el sexto elemento a la lista del nav
         agregarElementoLista(ul, "Pabellones", "#pabellones"); // Añadimos el tercer elemento a la lista del nav
         agregarElementoLista(ul, "Dirigentes", "#dirigentes"); // Añadimos el séptimo elemento a la lista del nav
         agregarElementoLista(ul, "Premios", "#premios"); // Añadimos el tercer elemento a la lista del nav
-        agregarElementoLista(ul, "Jugadores", "#jugadores"); // Añadimos el sexto elemento a la lista del nav
 
     } // Función que crea el header con el nav y la lista de elementos
