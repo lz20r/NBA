@@ -66,7 +66,7 @@ fetch("../json/franquicias.json")
     
         // Agregamos elementos a la lista
         agregarElementoLista(ul, "Inicio", "#home"); // Añadimos el primer elemento a la lista del nav
-        agregarElementoLista(ul, "Equipo", "#equipos"); // Añadimos el segundo elemento a la lista del nav
+        agregarElementoLista(ul, "Equipos", "#equipos"); // Añadimos el segundo elemento a la lista del nav
         agregarElementoLista(ul, "Jugadores", "#jugadores"); // Añadimos el tercer elemento a la lista del nav
         agregarElementoLista(ul, "Estadísticas", "#estadisticas"); // Añadimos el cuarto elemento a la lista del nav
         agregarElementoLista(ul, "Contacto", "#contacto"); // Añadimos el quinto elemento a la lista del nav
@@ -79,7 +79,7 @@ fetch("../json/franquicias.json")
             body.className = "body";
 
             let section = document.createElement('section');
-            section.className = 'equipos';
+            section.className = '#equipos';
             let card = document.createElement('div');
             card.className = 'card';
             document.body.appendChild(card);  
