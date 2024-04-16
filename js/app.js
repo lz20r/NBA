@@ -18,9 +18,9 @@ fetch("../json/franquicias.json")
 fetch('../xml/nba.xml')
 .then(response => response.text())
 .then(info => { 
-   // Create the table element
-
+ 
     jugadores(info);
+    
 
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
@@ -107,12 +107,9 @@ fetch('../xml/nba.xml')
         }); 
     } 
 
-    function dirigentes (info) {
+    function dirigentes (info) { 
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(info, 'application/xml');
-
-        let dirigentes = crearSection();
-        dirigentes.id = "dirigentes";
     
         // Extract the "dirigente" elements
         let h1 = document.createElement('h1');
@@ -143,10 +140,20 @@ fetch('../xml/nba.xml')
         document.body.appendChild(table);
     }
 
-    function pabellones(info) {
-        let parser = new DOMParser();
-        let xmlDoc = parser.parseFromString(info, 'application/xml');
+    function pabellones(info) { 
+    let parser = new DOMParser();
+    let xmlDoc = parser.parseFromString(info, 'application/xml');
+    let table = document.createElement('table');
+    table.classList.add('table-style');
 
+    let pabellones = crearSection();
+    pabellones.id = "pabellones";
+    let h1 = document.createElement('h1');
+    h1.textContent = "Pabellones";
+    pabellones.appendChild(h1);
+        
+    // Extract the "pabellon" elements
+    let pabe = xmlDoc.getElementsByTagName('pabellon'); 
      // Iterate over each "pabellon" element and create table rows and cells
     for (let pabellon of pabe) {
         let row = document.createElement('tr');
@@ -183,6 +190,41 @@ fetch('../xml/nba.xml')
     }
 
     function premios(info) {
+        let parser = new DOMParser();
+        let xmlDoc = parser.parseFromString(info, 'application/xml');
+        let table = document.createElement('table');
+        table.classList.add('table-style');
+
+        let premios = crearSection();
+        premios.id = "premios";
+        let h1 = document.createElement('h1');
+        h1.textContent = "Premios";
+        premios.appendChild(h1);
+
+        // Extract the "premio" elements
+        let prem = xmlDoc.getElementsByTagName('premio');
+
+        // Create and append table header row
+        let headerRow = document.createElement('tr');
+        headerRow.classList.add('header-row');
+        for (let attribute of ['Nombre', 'Año']) {
+            let th = document.createElement('th');
+            th.textContent = attribute;
+            headerRow.appendChild(th);
+        }
+        table.appendChild(headerRow);
+
+        // Iterate over each "premio" element and create table rows and cells
+        for (let premio of prem) {
+            let row = document.createElement('tr');
+            for (let attribute of ['nombre', 'año']) {
+                let cell = document.createElement('td');
+                cell.textContent = premio.getAttribute(attribute);
+                row.appendChild(cell);
+            }
+            table.appendChild(row);
+        }
+        document.body.appendChild(table);
     }
 
     function jugadores(info) {
