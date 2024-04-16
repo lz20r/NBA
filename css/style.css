@@ -41,20 +41,10 @@ nav li{
   display: inline;
 }
 
-footer{
-  background-color: #333;
-  color: #fff; 
-  padding: 4px 0;
-  text-align: center;
-}
+h1{
+  
+} 
 
-
-footer{
-  background-color: #333;
-  color: #fff; 
-  padding: 4px 0;
-  text-align: center;
-}
 
 .card{
   display: inline-block; 
@@ -140,3 +130,9 @@ footer{
   color: #333;
   align-items: center;
 }
+footer{
+  background-color: #333;
+  color: #fff; 
+  padding: 4px 0;
+  text-align: center;
+} 
