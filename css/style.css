@@ -167,3 +167,43 @@ footer{
   text-align: center;
 } 
 
+/* css de xml.js */
+ 
+
+/* Table style */
+.table-style {
+  width: 40%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Table header style */
+.header-row th {
+  background-color: #042f4f;
+  color: white;
+  /* border: 1px solid #dddddd; */
+  padding: 8px;
+  text-align: left;
+}
+
+/* Table body style */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+tbody td {
+  /* border: 1px solid #dddddd; */
+  padding: 8px;
+}
+/* td:hover{
+  background-color: #e9ecef;
+} */
+.table-style tbody tr:hover td {
+  background-color: #f9a114; /* Change this color to the highlight color you prefer */
+}
