@@ -136,3 +136,12 @@ footer{
   padding: 4px 0;
   text-align: center;
 } 
+
+/* css de xml.js */
+ 
+/* .table-style:not(:last-child){
+    border-bottom: 1px solid black;
+} */
+.header-row{
+  border: 2px solid black;
+}
