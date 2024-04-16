@@ -47,7 +47,7 @@ fetch('../xml/nba.xml')
  
  
  
-    // Extract the "premmios" elements
+    // Extract the "premios" elements
     let premios = xmlDoc.getElementsByTagName('premio');
       
     let div = document.createElement('div');
