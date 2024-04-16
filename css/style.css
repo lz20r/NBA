@@ -41,7 +41,28 @@ nav li{
   display: inline;
 }
 
+h1 {
+  text-align: center;
+  color:#222; font-size:30px; font-weight:400;
+  text-transform: uppercase;
+  word-spacing: 1px; letter-spacing:2px; color:#c50000;
+}
+h1:before { 
+  background-color:#d78b8b;
+    left:45px; width:90px;
+  }
 
+h1:after {
+  background-color:#d78b8b;
+    right:45px; width:90px;
+  }
+
+.equipo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set the height of the container to match the viewport height */
+}
 
 .card{
   display: inline-block; 
@@ -51,8 +72,7 @@ nav li{
   text-align:justify;
   transition: 0.3s; 
   margin: 10px;
-  width: 16%;
-  /* height: 200px; */
+  width: 16%; 
 }
 
 .card-inner { 
@@ -69,8 +89,7 @@ nav li{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  align-items: center; 
   position: relative; 
 }
 .card:hover .card-inner {
@@ -85,9 +104,14 @@ nav li{
   transform: rotateY(180deg); 
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;  
 }
-
+.card-info { 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
+}
 .card:hover{
   box-shadow: 0 0 10px  rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
@@ -109,7 +133,7 @@ nav li{
   color: #666;
   font-size: 16px;
   margin: 10px;
-  align-items: center;
+  align-items: center; 
 }
 
 .card a{
@@ -128,6 +152,14 @@ nav li{
   color: #333;
   align-items: center;
 }
+
+.card-name{
+  color: #333;
+  font-size: 20px;
+  margin: 10px;
+  align-items: center;
+  height: 19px;
+}
 footer{
   background-color: #333;
   color: #fff; 
@@ -135,11 +167,3 @@ footer{
   text-align: center;
 } 
 
-/* css de xml.js */
- 
-/* .table-style:not(:last-child){
-    border-bottom: 1px solid black;
-} */
-.header-row{
-  border: 2px solid black;
-}
