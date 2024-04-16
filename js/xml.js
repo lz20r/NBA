@@ -66,7 +66,7 @@ fetch('../xml/nba.xml')
         }
         div.appendChild(para);
     }
- 
+
     // Append the table to an existing HTML element with id 'table-container'
     document.body.appendChild(div);
     
