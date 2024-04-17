@@ -20,7 +20,7 @@ fetch('../xml/nba.xml')
 .then(info => {   
     jugadores(info); 
     pabellones(info);
-    premios(info);
+    //premios(info);
 
 
     footer();
@@ -174,9 +174,9 @@ fetch('../xml/nba.xml')
             cardInner.className = 'card-inner';
             card.appendChild(cardInner);
 
-            let imagen = jugador.getAttribute('nombre'); // Obtenemos el último elemento del array
+            let imagen =  jugador.getAttribute('nombre').replace(' ', '-').toLowerCase(); // Obtenemos el último elemento del array
             let img = document.createElement('img'); // Creamos una imagen
-            img.src = `../img/jugadores/${imagen}.svg`; // Añadimos la ruta de la imagen
+            img.src = `../jugadores/${imagen}.png`; // Añadimos la ruta de la imagen
             img.className = "img"; // Añadimos una clase a la imagen
             cardInner.appendChild(img); // Añadimos la imagen al cardBody
 
@@ -270,36 +270,7 @@ fetch('../xml/nba.xml')
         document.body.appendChild(table);
     }
 
-    function premios(info) {
-        // Extract the "premmios" elements
-        let premios = xmlDoc.getElementsByTagName('premio');
-        
-        let div = document.createElement('div');
-        div.id = 'premios-container'; // Add ID to the div container
 
-        let premi = document.createElement('h1');
-        premi.id = 'premios-title'; //  
-        premi.textContent = "Premios";
-        div.appendChild(premi);
-
-        // Iterate over each "premio" element and create paraghraph
-        for (let pre of premios) {
-            let para = document.createElement('p');
-            for (let attribute of ['nombre']) {
-                let heading = document.createElement('h2');
-                heading.textContent = pre.getAttribute(attribute);
-                para.appendChild(heading);
-                for (let attribute of [ 'descripcion']) {
-                    let cell = document.createElement('p');
-                    cell.textContent = pre.getAttribute(attribute);
-                    para.appendChild(cell);
-                }
-            }
-            div.appendChild(para);
-        }
-        // Append the table to an existing HTML element with id 'table-container'
-        document.body.appendChild(div);    
-    }
 
 
 // FUNCIONES DE CREACIÓN DE ELEMENTOS HTML
