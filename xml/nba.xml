@@ -70,7 +70,7 @@
             <jugador nombre="Jaylen Brown" posicion="Alero" numero="7" equipo_actual="Boston Celtics"/>
             <jugador nombre="Marcus Smart" posicion="Base" numero="36" equipo_actual="Boston Celtics"/>
             <jugador nombre="Al Horford" posicion="Pívot" numero="42" equipo_actual="Boston Celtics"/>
-            <jugador nombre="Robert Williams III" posicion="Pívot" numero="44" equipo_actual="Boston Celtics" apodo="Time Lord"/>
+            <jugador nombre="Robert Williams" posicion="Pívot" numero="44" equipo_actual="Boston Celtics" apodo="Time Lord"/>
         </franquicia>
         <franquicia nombre="Charlotte Hornets" ciudad="Charlotte">
             <jugador nombre="LaMelo Ball" posicion="Base" numero="2" equipo_actual="Charlotte Hornets"/>
@@ -96,7 +96,7 @@
         <franquicia nombre="Dallas Mavericks" ciudad="Dallas">
             <jugador nombre="Luka Dončić" posicion="Base" numero="77" equipo_actual="Dallas Mavericks"/>
             <jugador nombre="Kristaps Porziņģis" posicion="Ala-Pívot" numero="6" equipo_actual="Dallas Mavericks"/>
-            <jugador nombre="Tim Hardaway Jr." posicion="Alero" numero="11" equipo_actual="Dallas Mavericks"/>
+            <jugador nombre="Tim Hardaway Jr" posicion="Alero" numero="11" equipo_actual="Dallas Mavericks"/>
             <jugador nombre="Dwight Powell" posicion="Pívot" numero="7" equipo_actual="Dallas Mavericks"/>
             <jugador nombre="Jalen Brunson" posicion="Base" numero="13" equipo_actual="Dallas Mavericks"/>
         </franquicia>
@@ -104,7 +104,7 @@
             <jugador nombre="Nikola Jokić" posicion="Pívot" numero="15" equipo_actual="Denver Nuggets"/>
             <jugador nombre="Jamal Murray" posicion="Base" numero="27" equipo_actual="Denver Nuggets"/>
             <jugador nombre="Aaron Gordon" posicion="Alero" numero="50" equipo_actual="Denver Nuggets"/>
-            <jugador nombre="Michael Porter Jr." posicion="Alero" numero="1" equipo_actual="Denver Nuggets"/>
+            <jugador nombre="Michael Porter Jr" posicion="Alero" numero="1" equipo_actual="Denver Nuggets"/>
             <jugador nombre="Will Barton" posicion="Alero" numero="5" equipo_actual="Denver Nuggets" apodo="Thrill"/>
         </franquicia>
         <franquicia nombre="Detroit Pistons" ciudad="Detroit">
