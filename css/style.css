@@ -77,10 +77,8 @@ h1:after {
 
 .card-inner { 
   display: flex;
-  /* flex-direction: column; */
-  margin-left: auto;
-  height: 100%;
-  perspective: 1000px; /* Efecto 3D */
+  flex-direction: column; 
+  perspective: 100px; /* Efecto 3D */
   transform-style: preserve-3d;
   transition: transform 0.8s;
 }
@@ -107,11 +105,12 @@ h1:after {
   justify-content: center;
   align-items: center;  
 }
-.card-info { 
-  flex-direction: column;
+.card-info {  
   justify-content: center;
   align-items: center; 
-  text-align: center;
+  text-align: center; 
+  padding: 10px;
+  flex-wrap: wrap;
 }
 .card:hover{
   box-shadow: 0 0 10px  rgba(0, 0, 0, 0.2);
@@ -161,6 +160,22 @@ h1:after {
   align-items: center;
   height: 19px;
 }
+
+
+.card-name, 
+.card-city, 
+.card-state, 
+.card-conference, 
+.card-division,
+.card-founded, 
+.card-nombre,
+.card-position,
+.card-number,
+.card-nickname,
+.card-team {   
+  margin:4px 0;
+}
+
 footer{
   background-color: #333;
   color: #fff; 
@@ -169,7 +184,7 @@ footer{
 } 
 
 /* css de xml.js */
-
+ 
 
 /* Table style */
 .table-style {
@@ -183,7 +198,7 @@ footer{
 /* Table header style */
 .header-row th {
   background-color: #042f4f;
-  color: white;
+  color: white;/* border: 1px solid #dddddd; */
   padding: 8px;
   text-align: left;
 }
@@ -203,4 +218,9 @@ tbody td {
 
 .table-style tbody tr:hover td {
   background-color: #f9a114; /* Change this color to the highlight color you prefer */
+} 
+
+/* CSS for the div container */
+#premios-container {
+  margin: 20px; /* Add margin as needed */
 }

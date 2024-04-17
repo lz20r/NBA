@@ -8,17 +8,21 @@
 fetch("../json/franquicias.json")
 .then(equipo => equipo.json())
 .then(equipo => {    
-    // console.log(equipo); 
+    //console.log(equipo); 
     header();
-    home();
-    equipos(equipo);    
+    //home();
+    //equipos(equipo);    
     
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
 fetch('../xml/nba.xml')
 .then(response => response.text())
 .then(info => {   
-    jugadores(info);  
+    jugadores(info); 
+    pabellones(info);
+    premios(info);
+
+
     footer();
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
@@ -46,14 +50,15 @@ fetch('../xml/nba.xml')
         equipos.appendChild(h1); // Añadimos el h1 al section
 
         equipo.franquicias.forEach(equipo => { 
-            let body = document.body;
-            body.className = "body";
 
+            // QUE ES ESTO JAJA
             let section = document.createElement('section');
             section.className = 'equipos';
+
+
             let card = document.createElement('div');
             card.className = 'card';
-            document.body.appendChild(card);  
+            equipos.appendChild(card);  
 
             let cardInner = document.createElement('div');
             cardInner.className = 'card-inner';
@@ -161,18 +166,19 @@ fetch('../xml/nba.xml')
         // Iterate over each "jugador" element and create table rows and cells
         for (let jugador of jug) {
 
-            let body = document.body;
-            body.className = "body";
-
-            let section = document.createElement('section');
-            section.className = 'jugadores';
             let card = document.createElement('div');
             card.className = 'card';
-            document.body.appendChild(card);
+            jugadores.appendChild(card);
 
             let cardInner = document.createElement('div');
             cardInner.className = 'card-inner';
             card.appendChild(cardInner);
+
+            let imagen = jugador.getAttribute('nombre'); // Obtenemos el último elemento del array
+            let img = document.createElement('img'); // Creamos una imagen
+            img.src = `../img/jugadores/${imagen}.svg`; // Añadimos la ruta de la imagen
+            img.className = "img"; // Añadimos una clase a la imagen
+            cardInner.appendChild(img); // Añadimos la imagen al cardBody
 
             let cardFront = document.createElement('div');
             cardFront.className = 'card-front';
@@ -209,8 +215,94 @@ fetch('../xml/nba.xml')
         }
         document.body.appendChild(table);
     }
-// FUNCIONES DE CREACIÓN DE ELEMENTOS HTML
 
+    function pabellones(info) {
+        // Parse the XML string into a DOM object
+        let parser = new DOMParser();
+        let xmlDoc = parser.parseFromString(info, 'text/xml');
+
+        // Extract the "pabellon" elements
+        let pabellones = xmlDoc.getElementsByTagName('pabellon');
+
+        // Create the table element
+        let table = document.createElement('table');
+        table.classList.add('table-style');
+
+        // Create the table header
+        let thead = document.createElement('thead');
+        let headerRow = document.createElement('tr');
+        headerRow.classList.add('header-row');
+        for (let attribute of ['Nombre', 'Ciudad', 'Capacidad']) {
+            let th = document.createElement('th');
+            th.textContent = attribute;
+            headerRow.appendChild(th);
+        }
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        // Create the table body
+        let tbody = document.createElement('tbody');
+
+        // Iterate over each "pabellon" element and create table rows and cells
+        for (let pabellon of pabellones) {
+            let row = document.createElement('tr');
+            for (let attribute of ['nombre', 'ciudad', 'capacidad']) {
+                let cell = document.createElement('td');
+                cell.textContent = pabellon.getAttribute(attribute);
+                row.appendChild(cell);
+            }
+            tbody.appendChild(row);
+        }
+
+        // Append the tbody to the table
+        table.appendChild(tbody);
+
+        // Add a heading for the table
+        let pabel = document.createElement('h1');
+        pabel.textContent = "Pabellones";
+
+        // Append the heading and table to the document body
+        document.body.appendChild(pabel);
+        document.body.appendChild(table);
+
+
+        // Append the table to an existing HTML element with id 'table-container'
+        document.body.appendChild(table);
+    }
+
+    function premios(info) {
+        // Extract the "premmios" elements
+        let premios = xmlDoc.getElementsByTagName('premio');
+        
+        let div = document.createElement('div');
+        div.id = 'premios-container'; // Add ID to the div container
+
+        let premi = document.createElement('h1');
+        premi.id = 'premios-title'; //  
+        premi.textContent = "Premios";
+        div.appendChild(premi);
+
+        // Iterate over each "premio" element and create paraghraph
+        for (let pre of premios) {
+            let para = document.createElement('p');
+            for (let attribute of ['nombre']) {
+                let heading = document.createElement('h2');
+                heading.textContent = pre.getAttribute(attribute);
+                para.appendChild(heading);
+                for (let attribute of [ 'descripcion']) {
+                    let cell = document.createElement('p');
+                    cell.textContent = pre.getAttribute(attribute);
+                    para.appendChild(cell);
+                }
+            }
+            div.appendChild(para);
+        }
+        // Append the table to an existing HTML element with id 'table-container'
+        document.body.appendChild(div);    
+    }
+
+
+// FUNCIONES DE CREACIÓN DE ELEMENTOS HTML
     function crearSection() {
         let section = document.createElement('section'); // Creamos un section
         document.body.appendChild(section); // Añadimos el section al body
