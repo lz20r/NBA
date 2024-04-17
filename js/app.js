@@ -13,6 +13,7 @@ fetch("../json/franquicias.json")
     //home();
     equipos(equipo);    
     createBackToTopButton();
+    changeButtonIcon('fas fa-arrow-down');
     
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
@@ -384,7 +385,7 @@ fetch('../xml/nba.xml')
     function footer() {
         let footer = crearFooter(); // Creamos el footer
         
-        footer.appendChild(h1("Naiara Zhiyao Lezameta Rodrgo")); // Añadimos un h1 al footer
+        footer.appendChild(h1("Naiara Zhiyao Lezameta Rodrigo")); // Añadimos un h1 al footer
         footer.appendChild(h1("Jashanjeet Singh Kuka")); // Añadimos un h1 al footer
     } // Función que crea el footer
 
@@ -393,7 +394,7 @@ fetch('../xml/nba.xml')
         const button = document.createElement('button');
         button.classList.add('back-to-top');
         button.innerHTML = '<i class="fas fa-arrow-up"></i>';
-        button.onclick = scrollToTop;
+        button.onclick = scrollToTop; 
     
         // Agregar el botón al cuerpo del documento
         document.body.appendChild(button);
@@ -405,5 +406,4 @@ fetch('../xml/nba.xml')
             top: 0,
             behavior: "smooth"
         });
-    } 
-    
+    }  
