@@ -297,10 +297,10 @@ fetch('../xml/nba.xml')
         p2.className = 'p1style';
 
         // Adding text to the div elements
-        p1.textContent = `Comisionado: ${comisionado}`;
-        p2.textContent = `Años en el puesto: ${añosEnElPuesto}`;
-        datos.appendChild(p1);
+        p1.textContent = `Comisionado: ${comisionado} (Años en el puesto: ${añosEnElPuesto})`;
+        p2.textContent = `Vice comisionado: ${viceComisionado}`;
         datos.appendChild(p2);
+        datos.appendChild(p1);
         dirigentes.appendChild(datos);
 
         // Creating div elements
@@ -311,8 +311,6 @@ fetch('../xml/nba.xml')
         p4.className = 'p1style';
         
         // Adding text to the div elements
-        p3.textContent = `Vice comisionado: ${viceComisionado}`;
-        datos2.appendChild(p3);
         dirigentes.appendChild(datos2);
 
         // Append the table to an existing HTML element with id 'table-container'
@@ -384,7 +382,8 @@ fetch('../xml/nba.xml')
 
     function footer() {
         let footer = crearFooter(); // Creamos el footer
-        footer.appendChild(h1("NBA")); // Añadimos un h1 al footer
-
+        
+        footer.appendChild(h1("Naiara Zhiyao Lezameta Rodrgo")); // Añadimos un h1 al footer
+        footer.appendChild(h1("Jashanjeet Singh Kuka")); // Añadimos un h1 al footer
     } // Función que crea el footer
 
