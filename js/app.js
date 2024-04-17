@@ -11,7 +11,7 @@ fetch("../json/franquicias.json")
     //console.log(equipo); 
     header();
     //home();
-    //equipos(equipo);    
+    equipos(equipo);    
     
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
@@ -20,9 +20,8 @@ fetch('../xml/nba.xml')
 .then(info => {   
     jugadores(info); 
     pabellones(info);
-    //premios(info);
-
-
+    premios(info); 
+    dirigentes(info);
     footer();
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
@@ -110,39 +109,6 @@ fetch('../xml/nba.xml')
         }); 
     } 
 
-    function dirigentes (info) { 
-        let parser = new DOMParser();
-        let xmlDoc = parser.parseFromString(info, 'application/xml');
-    
-        // Extract the "dirigente" elements
-        let h1 = document.createElement('h1');
-        h1.textContent = "Dirigentes";
-        dirigentes.appendChild(h1); 
-    
-        let dirg = xmlDoc.getElementsByTagName('dirigente');
-        // Create and append table header row
-        let headerRow1 = document.createElement('tr');
-        headerRow1.classList.add('header-row');
-        for (let attribute of ['Nombre', 'Años en el puesto']) {
-            let th = document.createElement('th');
-            th.textContent = attribute;
-            headerRow1.appendChild(th);
-        }
-        table.appendChild(headerRow1);
-    
-        // Iterate over each "dirigente" element and create table rows and cells
-        for (let dirigente of dirg) {
-            let row = document.createElement('tr');
-            for (let attribute of ['nombre', 'años']) {
-                let cell = document.createElement('td');
-                cell.textContent = dirigente.getAttribute(attribute);
-                row.appendChild(cell);
-            }
-            table.appendChild(row);
-        } 
-        document.body.appendChild(table);
-    }
-
     function jugadores(info) {
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(info, 'application/xml');
@@ -157,11 +123,7 @@ fetch('../xml/nba.xml')
 
         // Extract the "jugador" elements
         let jug = xmlDoc.getElementsByTagName('jugador');
-
-        for (let jugador of jug) { 
-            let h5 = document.createElement('h5'); 
-            table.appendChild(h5);
-        }
+ 
 
         // Iterate over each "jugador" element and create table rows and cells
         for (let jugador of jug) {
@@ -223,7 +185,7 @@ fetch('../xml/nba.xml')
 
         // Extract the "pabellon" elements
         let pabellones = xmlDoc.getElementsByTagName('pabellon');
-
+ 
         // Create the table element
         let table = document.createElement('table');
         table.classList.add('table-style');
@@ -259,6 +221,7 @@ fetch('../xml/nba.xml')
 
         // Add a heading for the table
         let pabel = document.createElement('h1');
+        pabel.id = 'pabellones'; // Add ID to the div container 
         pabel.textContent = "Pabellones";
 
         // Append the heading and table to the document body
@@ -270,9 +233,94 @@ fetch('../xml/nba.xml')
         document.body.appendChild(table);
     }
 
+    function premios(info) {
+        // Parse the XML string into a DOM object
+        let parser = new DOMParser();
+        let xmlDoc = parser.parseFromString(info, 'text/xml');
 
+        // Extract the "premmios" elements
+        let premios = xmlDoc.getElementsByTagName('premio');
+        
+        let div = document.createElement('div');
+        div.id = 'premios-container'; // Add ID to the div container
 
+        let premi = document.createElement('h1');
+        premi.id = 'premios'; //  
+        premi.textContent = "Premios";
+        div.appendChild(premi);
 
+        // Iterate over each "premio" element and create paraghraph
+        for (let pre of premios) {
+            let para = document.createElement('p');
+            for (let attribute of ['nombre']) {
+                let heading = document.createElement('h2');
+                heading.textContent = pre.getAttribute(attribute);
+                para.appendChild(heading);
+                for (let attribute of [ 'descripcion']) {
+                    let cell = document.createElement('p');
+                    cell.textContent = pre.getAttribute(attribute);
+                    para.appendChild(cell);
+                }
+            }
+            div.appendChild(para);
+        }
+
+        // Append the table to an existing HTML element with id 'table-container'
+        document.body.appendChild(div);  
+    }
+
+    function dirigentes(info) {
+        let parser = new DOMParser();
+        let xmlDoc = parser.parseFromString(info, 'text/xml');
+
+        // Creating Dirigentes container
+        const diri = document.createElement('div');
+        diri.className = 'style';
+
+        // Creating Dirigentes
+        let dirigentes = crearSection();
+        dirigentes.id = "dirigentes";
+        let h1 = document.createElement('h1');
+        h1.textContent = "Dirigentes";
+        dirigentes.appendChild(h1);
+        
+        // Extracting data from the DOM object
+        const comisionado = xmlDoc.querySelector('comisionado').getAttribute('nombre');
+        const añosEnElPuesto = xmlDoc.querySelector('comisionado').getAttribute('años_en_el_puesto');
+        const viceComisionado = xmlDoc.querySelector('vice_comisionado').getAttribute('nombre');
+
+        // Creating div elements
+        const datos = document.createElement('div');
+        const p1 = document.createElement('p');
+        p1.className = 'p1style';
+        const p2 = document.createElement('p');
+        p2.className = 'p1style';
+
+        // Adding text to the div elements
+        p1.textContent = `Comisionado: ${comisionado}`;
+        p2.textContent = `Años en el puesto: ${añosEnElPuesto}`;
+        datos.appendChild(p1);
+        datos.appendChild(p2);
+        dirigentes.appendChild(datos);
+
+        // Creating div elements
+        const datos2 = document.createElement('div');
+        const p3 = document.createElement('p');
+        p3.className = 'p1style';
+        const p4 = document.createElement('p');
+        p4.className = 'p1style';
+        
+        // Adding text to the div elements
+        p3.textContent = `Vice comisionado: ${viceComisionado}`;
+        datos2.appendChild(p3);
+        dirigentes.appendChild(datos2);
+
+        // Append the table to an existing HTML element with id 'table-container'
+        document.body.appendChild(diri);
+
+        
+        
+    }
 // FUNCIONES DE CREACIÓN DE ELEMENTOS HTML
     function crearSection() {
         let section = document.createElement('section'); // Creamos un section

@@ -133,7 +133,7 @@
             <jugador nombre="Domantas Sabonis" posicion="Pívot" numero="11" equipo_actual="Indiana Pacers"/>
             <jugador nombre="Myles Turner" posicion="Pívot" numero="33" equipo_actual="Indiana Pacers"/>
             <jugador nombre="Caris LeVert" posicion="Alero" numero="22" equipo_actual="Indiana Pacers"/>
-            <jugador nombre="T.J. Warren" posicion="Alero" numero="1" equipo_actual="Indiana Pacers"/>
+            <jugador nombre="TJ Warren" posicion="Alero" numero="1" equipo_actual="Indiana Pacers"/>
         </franquicia>
         <franquicia nombre="Los Angeles Clippers" ciudad="Los Angeles">
             <jugador nombre="Kawhi Leonard" posicion="Alero" numero="2" equipo_actual="Los Angeles Clippers"/>

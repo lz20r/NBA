@@ -224,3 +224,19 @@ tbody td {
 #premios-container {
   margin: 20px; /* Add margin as needed */
 }
+
+/* css of dirigente */
+.style{
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.p1style{
+  color: #042f4f;
+  font-size: 24px;
+}
+.p2style{
+  color: #4f0443;
+  font-size: inherit;
+}
