@@ -12,6 +12,7 @@ fetch("../json/franquicias.json")
     header();
     //home();
     equipos(equipo);    
+    createBackToTopButton();
     
 }).catch(error => console.error('error', error)); // Capturamos el error si lo hay
 
@@ -365,12 +366,12 @@ fetch('../xml/nba.xml')
         let ul = crearNav(header); // Creamos el nav y obtenemos el ul creado
 
         // Agregamos elementos a la lista
-        agregarElementoLista(ul, "Inicio", "#home"); // Añadimos el primer elemento a la lista del nav
+        //agregarElementoLista(ul, "Inicio", "#home"); // Añadimos el primer elemento a la lista del nav
         agregarElementoLista(ul, "Equipos", "#equipos"); // Añadimos el segundo elemento a la lista del nav
         agregarElementoLista(ul, "Jugadores", "#jugadores"); // Añadimos el sexto elemento a la lista del nav
         agregarElementoLista(ul, "Pabellones", "#pabellones"); // Añadimos el tercer elemento a la lista del nav
-        agregarElementoLista(ul, "Dirigentes", "#dirigentes"); // Añadimos el séptimo elemento a la lista del nav
         agregarElementoLista(ul, "Premios", "#premios"); // Añadimos el tercer elemento a la lista del nav
+        agregarElementoLista(ul, "Dirigentes", "#dirigentes"); // Añadimos el séptimo elemento a la lista del nav
 
     } // Función que crea el header con el nav y la lista de elementos
 
@@ -387,3 +388,22 @@ fetch('../xml/nba.xml')
         footer.appendChild(h1("Jashanjeet Singh Kuka")); // Añadimos un h1 al footer
     } // Función que crea el footer
 
+    function createBackToTopButton() {
+        // Crear el botón
+        const button = document.createElement('button');
+        button.classList.add('back-to-top');
+        button.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        button.onclick = scrollToTop;
+    
+        // Agregar el botón al cuerpo del documento
+        document.body.appendChild(button);
+    }
+    
+    // Función para hacer scroll hacia arriba
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    } 
+    
