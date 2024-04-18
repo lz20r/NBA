@@ -5,10 +5,14 @@
 - index.html
 - app.js
 - style.css
-- carpeta de imag
-# DEPORTES:
-## Equipos: 
-## Jugadores
-## Pabellones
-## Premios
-## Dirigentes
+- carpeta de imágenes de los logos subdidvido en subcarpetas por franquicias
+- bases de datos:
+  - franquicias.json: información de las franquicias
+  - nba.xml: información de los dirigentes, pabellones, premios y jugadores 
+# Estructura de nuestro trabajo:
+## DEPORTES:
+### Equipos: 
+### Jugadores
+### Pabellones
+### Premios
+### Dirigentes
