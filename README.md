@@ -1,6 +1,6 @@
 # Miembros:
-- Naiara Zhiyao Lezameta Rodrigo
-- 
+- Naiara Zhiyao Lezameta Rodrigo (@lz20r)
+- Jashanjeet Singh Kuka (@MrMejor)
 # Objetivos:
 - Realizar una página haciendo solo uso de JavaScript, HTML y CSS. Teniendo que conectarse a dos bases de datos disitintos: JSON y XML
 - Temática: Deportes: BALONCESTO
