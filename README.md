@@ -10,9 +10,9 @@
     - franquicias.json: información de las franquicias
     - nba.xml: información de los dirigentes, pabellones, premios y jugadores 
 # Estructura de nuestro trabajo:
-- Cabezera
-- Contenido 
-- Pie de página
+- Heading, dificultad mínima
+- Body, difícultad moderadamente accesible para los que tienen conocimientos previos de frontend
+- Footer, dificulto nula 
 # Elementos usados a grandes rasgos:
 - Función de H1
 - Función de Nav interactivo
