@@ -10,9 +10,15 @@
     - franquicias.json: información de las franquicias
     - nba.xml: información de los dirigentes, pabellones, premios y jugadores 
 # Estructura de nuestro trabajo:
-## DEPORTES:
-### Equipos: 
-### Jugadores
-### Pabellones
-### Premios
-### Dirigentes
+- Cabezera
+- Contenido 
+- Pie de página
+# Elementos usados a grandes rasgos:
+- Función de H1
+- Función de Nav interactivo
+- Función de Equipos
+- Función de Jugadores
+- Función de Pabellones
+- Función de Premios
+- Función de Dirigentes
+- Función de Scroll top button
